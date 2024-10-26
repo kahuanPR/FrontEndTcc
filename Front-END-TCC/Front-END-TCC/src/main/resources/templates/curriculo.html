@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo do Freelancer</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="curriculum-container">
+        <h2>Currículo de <span th:text="${curriculum.freelancerName}">Nome do Freelancer</span></h2>
+
+        <section>
+            <h3>Qualificações</h3>
+            <p th:text="${curriculum.qualificacoes}">Exemplo de qualificação</p>
+        </section>
+
+        <section>
+            <h3>Experiências</h3>
+            <p th:text="${curriculum.experiencias}">Exemplo de experiência profissional</p>
+        </section>
+
+        <section>
+            <h3>Habilidades</h3>
+            <p th:text="${curriculum.habilidades}">Exemplo de habilidades</p>
+        </section>
+
+        <a th:href="@{/editar-curriculo/{freelancerId}(freelancerId=${curriculum.freelancerId})}" class="btn">Editar Currículo</a>
+    </div>
+</body>
+</html>

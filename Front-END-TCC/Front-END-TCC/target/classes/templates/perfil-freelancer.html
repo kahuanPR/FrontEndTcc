@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Freelancer</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .freelancer-profile {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .freelancer-profile h2 {
+            color: #333;
+            text-align: center;
+        }
+        .freelancer-profile p {
+            color: #555;
+            font-size: 16px;
+        }
+        .freelancer-profile .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .freelancer-profile .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="freelancer-profile">
+        <h2 th:text="${freelancer.nome}">Nome do Freelancer</h2>
+        
+        <p><strong>Localização:</strong> <span th:text="${freelancer.localizacao}">Localização</span></p>
+        
+        <p><strong>Descrição do Serviço:</strong></p>
+        <p th:text="${freelancer.descricaoServico}">Descrição do serviço oferecido pelo freelancer...</p>
+
+        <p><strong>Habilidades:</strong> <span th:text="${freelancer.habilidades}">Lista de habilidades</span></p>
+        
+        <p><strong>Avaliação:</strong> <span th:text="${freelancer.avaliacao}">4.5</span> estrelas</p>
+        
+        <div class="actions">
+            <a th:href="@{/contratar/{id}(id=${freelancer.id})}" class="btn">Contratar</a>
+            <a th:href="@{/negociar/{id}(id=${freelancer.id})}" class="btn">Negociar</a>
+        </div>
+    </div>
+</body>
+</html>
