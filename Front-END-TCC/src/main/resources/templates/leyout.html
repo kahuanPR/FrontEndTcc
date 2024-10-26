@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral</title>
+    <style>
+		/* Estilo para o corpo */
+		body {
+		    margin: 0;
+		    font-family: Arial, sans-serif;
+		}
+
+		/* Cabeçalho fixo contendo logo, título e botão de menu */
+		.header {
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-between;
+		    padding: 10px 20px;
+		    background-color: rgba(250, 250, 250, 0.99);
+		    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    z-index: 1000;
+		}
+
+		/* Container para menu-toggle, logo e título no cabeçalho */
+		.left-header {
+		    display: flex;
+		    align-items: center;
+		    gap: 10px;
+		}
+
+		/* Estilo do botão de abrir o menu */
+		.menu-toggle {
+		    color: black;
+		    padding: 10px;
+		    cursor: pointer;
+		    font-size: 25px;
+		}
+
+		/* Alinhamento especial do botão "fechar" na sidebar */
+		.close-btn {
+		    align-self: flex-end;
+		}
+
+		/* Logo e título no cabeçalho */
+		.logo {
+		    width: 65px;
+		    height: 65px;
+		    object-fit: contain;
+		}
+		.title {
+		    font-family: 'Inter', sans-serif;
+		    font-weight: 700;
+		    font-size: 30px;
+		    color: #1E1E1E;
+		}
+
+		/* Estilo para a barra lateral */
+		.sidebar {
+		    width: 250px;
+		    height: 100vh;
+		    position: fixed;
+		    top: 0;
+		    left: -300px;
+		    background-color: rgba(250, 250, 250, 0.99);
+		    transition: left 0.3s ease;
+		    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+		    padding: 20px;
+		    display: flex;
+		    flex-direction: column;
+		    gap: 20px;
+		    z-index: 1100;
+		}
+
+		/* Cabeçalho dentro da sidebar com nova logo e título */
+		.sidebar-header {
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-between;
+		    margin-bottom: 30px;
+		}
+
+		/* Logo e título na sidebar */
+		.sidebar-logo {
+		    width: 55px;
+		    height: 55px;
+		    object-fit: contain;
+		}
+		.sidebar-title {
+		    font-family: 'Inter', sans-serif;
+		    font-weight: 700;
+		    font-size: 22px;
+		    color: #1E1E1E;
+		}
+
+		/* Animação para abrir a barra lateral */
+		.sidebar.active {
+		    left: 0;
+		}
+
+		/* Itens de menu */
+		.menu-item {
+		    font-family: 'Inter', sans-serif;
+		    font-weight: 400;
+		    font-size: 24px;
+		    color: #000;
+		    border: 0.3px solid #000;
+		    padding: 10px 15px;
+		    cursor: pointer;
+		    transition: background-color 0.2s ease;
+		}
+
+		/* Hover nos itens */
+		.menu-item:hover {
+		    background-color: #e0e0e0;
+		}
+
+		/* Link de ajuda */
+		.help-link {
+		    font-family: 'Inter', sans-serif;
+		    font-weight: 400;
+		    font-size: 18px;
+		    color: #000;
+		    border: 0.3px solid #000;
+		    padding: 10px 15px;
+		    text-align: center;
+		    cursor: pointer;
+		    margin-top: auto;
+		}
+
+		</style>
+</head>
+<body>
+    <!-- Cabeçalho fixo -->
+    <div class="header">
+        <div class="left-header">
+            <div class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">☰</div>
+            <img src="/img/logofree-removebg-preview.png" alt="Logo" class="logo">
+            <span class="title">Freelancer.NET</span>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="menu-toggle close-btn" onclick="toggleSidebar()">☰</div>
+            <img src="/img/logofree-removebg-preview.png" alt="Logo" class="sidebar-logo">
+            <span class="sidebar-title">Freelancer.NET</span>
+        </div>
+        <div class="menu-item">Perfil</div>
+        <div class="menu-item">Serviço</div>
+        <div class="menu-item">Prestar serviço</div>
+        <div class="menu-item">Precisa de ajuda? <br> contate-nos</div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

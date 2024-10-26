@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Freelancer</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .edit-freelancer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .edit-freelancer h2 {
+            text-align: center;
+            color: #333;
+        }
+        .edit-freelancer input,
+        .edit-freelancer textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .edit-freelancer .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .edit-freelancer .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-freelancer">
+        <h2>Editar Perfil do Freelancer</h2>
+        <form th:action="@{/editar-freelancer/{id}(id=${freelancer.id})}" method="post">
+            <input type="text" th:value="${freelancer.nome}" name="nome" placeholder="Nome" required>
+            <textarea th:value="${freelancer.descricaoServico}" name="descricaoServico" placeholder="Descrição do Serviço" required></textarea>
+            <input type="text" th:value="${freelancer.localizacao}" name="localizacao" placeholder="Localização" required>
+            <input type="text" th:value="${freelancer.habilidades}" name="habilidades" placeholder="Habilidades" required>
+
+            <button type="submit" class="btn">Salvar Alterações</button>
+        </form>
+    </div>
+</body>
+</html>

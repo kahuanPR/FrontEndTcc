@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meus Serviços</title>
+</head>
+<body>
+    <h1>Meus Serviços</h1>
+    <a th:href="@{/cliente/servicos/novo/{clienteId}(clienteId=${clienteId})}">Criar Novo Serviço</a>
+    <ul>
+        <li th:each="servico : ${servicos}">
+            <p><strong>Serviço:</strong> <span th:text="${servico.titulo}">Título</span></p>
+            <p><strong>Descrição:</strong> <span th:text="${servico.descricao}">Descrição</span></p>
+            <p><strong>Preço:</strong> <span th:text="${servico.preco}">Preço</span></p>
+            <a th:href="@{/cliente/servicos/editar/{id}(id=${servico.id})}">Editar</a>
+            <form th:action="@{/cliente/servicos/deletar/{id}(id=${servico.id})}" method="post">
+                <input type="hidden" name="clienteId" th:value="${clienteId}" />
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+    </ul>
+</body>
+</html>
